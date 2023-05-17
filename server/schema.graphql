@@ -1,0 +1,12 @@
+type Query {
+    Products: [Product]
+    Product(id: ID!): Product
+}
+
+type Product {
+    title: String!
+    description: String!
+    outOfStock: Boolean
+    price: String!
+    _id: ID!
+}
