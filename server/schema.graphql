@@ -1,12 +1,25 @@
 type Query {
-    Products: [Product]
-    Product(id: ID!): Product
+  Products: [Product]
+  Product(id: ID!): Product
+}
+
+type Mutation {
+  addProduct(
+    title: String!
+    description: String!
+    price: String!
+    outOfStock: Boolean!
+  ): Product
+}
+
+type Subscription {
+  productAdded: Product
 }
 
 type Product {
-    title: String!
-    description: String!
-    outOfStock: Boolean
-    price: String!
-    _id: ID!
+  title: String!
+  description: String!
+  outOfStock: Boolean
+  price: String!
+  _id: ID!
 }
