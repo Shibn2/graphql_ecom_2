@@ -9,10 +9,10 @@ export const resolvers = {
     Products: async() => {
       let collection = await db.collection("products");
       const productsFromDb = await collection.find({})?.toArray((data)=>{
-        console.log('productsFromDb', data);
+        // console.log('productsFromDb', data);
         return data;
       });
-      console.log('productsFromDb+============================-->', productsFromDb);
+      console.log('productsFromDb+============================-->');
       return productsFromDb; 
     },
     Product: async (root, { id }) => {
@@ -29,7 +29,7 @@ export const resolvers = {
       const productInsert = await collection.insertOne(newProduct);
       console.log('productInsert---- return value====>', productInsert);
       const { acknowledged } = productInsert;
-      pubSub.publish(['POST_CREATED'], { productAdded: { title, description, price, 2} });
+      pubSub.publish(['POST_CREATED'], { productAdded: { title, description, price, outOfStock} });
       return { ...newProduct, acknowledged };
       // return acknowledged;
     }

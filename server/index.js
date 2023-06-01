@@ -13,7 +13,6 @@ import { db } from "./conn.js";
 console.log(" ATLAS_URI ", process.env.ATLAS_URI);
 
 const app = express();
-const port = 3006;
 
 // create http server with express app
 const httpServer = createServer(app);
@@ -70,6 +69,6 @@ app.post("/addProducts", async (req, res) => {
 //   console.log(`Server running at ${port}`);
 // });
 
-httpServer.listen(port, () => {
-  console.log(`Server running at ${port}`);
+httpServer.listen(process.env.APP_SERVING_PORT, () => {
+  console.log(`Server running at ${process.env.APP_SERVING_PORT}`);
 })

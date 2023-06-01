@@ -5,12 +5,22 @@ import ProductList from "./components/productList";
 import ProductDataForm from "./components/form";
 
 function App() {
-  const { loading, error, data: { Products = [] } = {} } = useQuery(productData);
+  const {
+    loading,
+    error,
+    data: { Products = [] } = {},
+    refetch,
+  } = useQuery(productData, { fetchPolicy: "cache-first" });
+  console.log("Products-->", Products);
 
+  const handleRefresh = () => {
+    console.log("hit refresh");
+    refetch();
+  };
   return (
     <div className="App">
       <h3>App Client</h3>
-      <ProductDataForm/>
+      <ProductDataForm />
       {
         <>
           {loading && error ? (
@@ -20,6 +30,7 @@ function App() {
           )}
         </>
       }
+      <button onClick={handleRefresh}>Refresh</button>
     </div>
   );
 }

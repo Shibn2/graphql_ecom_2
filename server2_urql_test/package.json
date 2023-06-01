@@ -1,0 +1,37 @@
+{
+  "name": "server2_urql_test",
+  "version": "1.0.0",
+  "description": "urql testing server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:build:client": "webpack --config webpack.client.js",
+    "dev:build:server": "webpack --config webpack.server.js",
+    "start": "node build/server/index.js"
+  },
+  "author": "shibn",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/plugin-transform-runtime": "^7.22.2",
+    "@babel/preset-env": "^7.22.2",
+    "@babel/preset-react": "^7.22.3",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "@urql/core": "^4.0.7",
+    "babel-loader": "^9.1.2",
+    "dotenv": "^16.0.3",
+    "esbuild": "^0.17.19",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "html-webpack-plugin": "^5.5.1",
+    "node-fetch": "^2.6.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "urql": "^4.0.2",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-merge": "^5.9.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
